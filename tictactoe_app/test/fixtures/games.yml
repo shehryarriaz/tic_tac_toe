@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_1: 
+  player_2: 
+  status: MyString
+  winner: 
+
+two:
+  player_1: 
+  player_2: 
+  status: MyString
+  winner: 

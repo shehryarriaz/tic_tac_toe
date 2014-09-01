@@ -1,0 +1,14 @@
+All Users<br>
+
+<% @users.each do |user| %><br>
+  Email: <%= user.email %><br>
+  Name: <%= user.name %><br>
+  Password digest: <%= user.password_digest %><br>
+  <%= link_to 'Show', user %>
+  <%= link_to 'Edit', edit_user_path(user) %>
+  <%= link_to 'Delete', user, method: :delete, data: { confirm: 'DELETE USER?' } %><br>
+<% end %>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
