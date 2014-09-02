@@ -5,4 +5,6 @@ class Game < ActiveRecord::Base
   has_many :moves
 
   attr_accessible :status, :player_1_id, :player_2_id
+
+  
 end

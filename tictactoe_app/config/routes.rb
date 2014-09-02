@@ -1,5 +1,13 @@
 TictactoeApp::Application.routes.draw do
-  root to: 'users#index'
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  root to: 'sessions#new'
 
   resources :users
+  resources :sessions
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 end
