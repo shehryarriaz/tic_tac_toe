@@ -13,12 +13,30 @@ class Game < ActiveRecord::Base
     move.save
   end
 
+  def player_1_moves
+    self.player_1.moves.where(game_id: id)
+  end
+
+  def player_2_moves
+    self.player_2.moves.where(game_id: id)
+  end
+
   def game_won?
-    #Add method here
+    win_conditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+    win_conditions.detect do |condition|
+      line = condition.map { |index| board[index] }
+      line.any? && line.uniq.count == 1
+    end
   end
 
   def game_drawn?
-    moves.count == 9 && !game_won?
+    self.moves.count >= 9 || !game_won?
+  end
+
+  def board
+    board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    moves.each { |move| board[move.space] = move.marker }
+    board
   end
 
   def active?
@@ -26,7 +44,7 @@ class Game < ActiveRecord::Base
   end
 
   def change_status
-    unless self.active?
+    if game_won? || game_drawn?
       self.status = "finished"
     end
   end
