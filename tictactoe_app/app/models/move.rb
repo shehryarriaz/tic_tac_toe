@@ -9,6 +9,8 @@ class Move < ActiveRecord::Base
   validate :space_is_empty
   # validate :space_in_bounds
 
+  after_create :change_game_status
+
   # Checks if the current game is still in play via the Game status attribute. Game status should be changed in the Game model.
   private
   def game_is_active
@@ -23,6 +25,11 @@ class Move < ActiveRecord::Base
   private
   def space_is_empty
     errors.add :space, "That space has been taken." unless game.taken_spaces.all? { |taken_space| taken_space != space }
+  end
+
+  private
+  def change_game_status
+    game.change_status
   end
 
 end

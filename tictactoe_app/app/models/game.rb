@@ -6,7 +6,7 @@ class Game < ActiveRecord::Base
 
   attr_accessible :status, :player_1_id, :player_2_id
 
-  before_save :set_in_progress, on: :create
+  before_create :set_in_progress
 
   def player_1_moves
     self.player_1.moves.where(game_id: id)
@@ -22,6 +22,10 @@ class Game < ActiveRecord::Base
     board
   end
 
+  def next_marker
+    moves.last.try(:marker) == 'o' ? 'x' : 'o'
+  end
+
   def game_won?
     win_conditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     win_conditions.detect do |condition|
@@ -31,7 +35,7 @@ class Game < ActiveRecord::Base
   end
 
   def game_drawn?
-    self.moves.count >= 9 || !game_won?
+    self.moves.count >= 9 && !game_won?
   end
 
   def active?
@@ -39,9 +43,10 @@ class Game < ActiveRecord::Base
   end
 
   def change_status
+    reload
     if game_won? || game_drawn?
       self.status = "finished"
-      self.save
+      self.save!
     end
   end
 
@@ -57,7 +62,7 @@ class Game < ActiveRecord::Base
 
   private
   def set_in_progress
-    self.status = "in_progress"
+    self.status ||= "in_progress"
   end
   
 end
