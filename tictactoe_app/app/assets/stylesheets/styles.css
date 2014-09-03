@@ -1,0 +1,13 @@
+.game_board {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.game_board tr:nth-of-type(even) {
+    background-color: transparent !important;
+}

@@ -1,9 +1,9 @@
-<h3><%= @name %></h3>
+<h2><%= @name %></h2>
 
-<%= link_to 'Play new game', new_game_path %>
+<%= link_to 'Play new game', new_game_path, :class => "button expand" %>
 
   <table>
-    <caption><h3>Your Stats</h3></caption>
+    <caption><h4>Your Stats</h4></caption>
     <tr>
       <th>Win/Loss Ratio</th>
       <th>Wins</th>
@@ -21,7 +21,7 @@
   </table>
 
 <table>
-  <caption><h3>Your Games</h3></caption>
+  <caption><h4>Your Games</h4></caption>
   <tr>
     <th>Game</th>
     <th>Player O</th>

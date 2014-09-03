@@ -1,19 +1,29 @@
-<h4>Game: <%= @game.id %></h4>
-<h4>Player O: <%= @game.player_1.name %></h4>
-<h4>Player X: <%= @game.player_2.name %></h4>
-<h4>Status: <%= @game.status %></h4>
+
+<table>
+  <caption>Game <%= @game.id %></caption>
+  <tr>
+    <th>Player O</th>
+    <th>Player X</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= @game.player_1.name %></td>
+    <td><%= @game.player_2.name %></td>
+    <td><%= @game.status %></td>
+  </tr>
+</table>
 
 <% if @game.active? %>
-  <h4>It's <%= @game.whose_turn.name %>'s turn.</h4>
+  <p class="alert-box success radius">It's <%= @game.whose_turn.name %>'s turn.</p>
 <% end %>
 
 <% if @game.game_drawn? %>
-  <h4>It's a draw!</h4>
+  <p class="alert-box success radius">It's a draw!</p>
 <% end %>
 
 <% if @game.game_won? %>
-  <h4><%= @game.winner.name %> wins!</h4>
+  <p class="alert-box success radius"><%= @game.winner.name %> wins!</p>
 <% end %>
 
 <%= render 'board' %>
-<%= link_to 'Back', games_path %>
+<%= link_to 'Back', games_path, :class => "button" %>
