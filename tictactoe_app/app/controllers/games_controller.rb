@@ -3,6 +3,11 @@ class GamesController < ApplicationController
   def index
     @name = current_user.name
     @games = current_user.games
+    @win_count = current_user.wins
+    @loss_count = current_user.losses
+    @draw_count = current_user.draws
+    @in_progress = current_user.in_progress
+    @win_loss = current_user.win_loss
   end
 
   def new

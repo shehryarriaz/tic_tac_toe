@@ -2,8 +2,26 @@
 
 <%= link_to 'Play new game', new_game_path %>
 
+  <table>
+    <caption><h3>Your Stats</h3></caption>
+    <tr>
+      <th>Win/Loss Ratio</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Draws</th>
+      <th>In Progress</th>
+    </tr>
+    <tr>
+      <td><%= @win_loss %></td>
+      <td><%= @win_count %></td>
+      <td><%= @loss_count %></td>
+      <td><%= @draw_count %></td>
+      <td><%= @in_progress %></td>
+    </tr>
+  </table>
+
 <table>
-  <caption><h3>Your games</h3></caption>
+  <caption><h3>Your Games</h3></caption>
   <tr>
     <th>Game</th>
     <th>Player O</th>

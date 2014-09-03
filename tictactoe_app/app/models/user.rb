@@ -15,4 +15,24 @@ class User < ActiveRecord::Base
     Game.where("games.player_1_id = :id or games.player_2_id = :id", id: id )
   end
 
+  def wins
+    Game.where(winner_id: id).count
+  end
+
+  def losses
+    self.games.where("status = 'finished' and winner_id != :id", id: id).count
+  end
+
+  def draws
+    self.games.where(winner_id: nil).where(status: "finished").count
+  end
+
+  def in_progress
+    self.games.where(status: "in_progress").count
+  end
+
+  def win_loss
+    (self.wins.to_f / self.losses.to_f).round(2)
+  end
+
 end
