@@ -8,11 +8,6 @@ class Game < ActiveRecord::Base
 
   before_save :set_in_progress, on: :create
 
-  def make_move(user_id, space, marker)
-    move = self.moves.create(user_id: user_id, space: space, marker: marker )
-    move.save
-  end
-
   def player_1_moves
     self.player_1.moves.where(game_id: id)
   end

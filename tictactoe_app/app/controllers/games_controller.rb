@@ -16,6 +16,18 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @markers = @game.board
+  end
+
+  def make_move
+    @game = Game.find(params[:id])
+    @move = Move.new(game_id: @game.id, user_id: current_user.id, space: params[:space], marker: "x" )
+    if @move.save
+      flash[:notice] = "Move made."
+    else
+      flash[:error] = "Invalid move."
+    end
+    redirect_to @game
   end
 
 end
