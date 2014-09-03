@@ -1,1 +1,12 @@
-<p><%= game.id %> | <%= game.player_1.name %> vs <%= game.player_2.name %> | <%= game.status %> | <% if game.active? %><%= game.whose_turn.name %>'s turn'<% end %> <%= link_to 'Show', game %></p>
+<tr>
+  <td><%= game.id %></td>
+  <td><%= game.player_1.name %></td>
+  <td><%= game.player_2.name %></td>
+  <td><%= game.status %></td>
+  <td><% if game.active? %><%= game.whose_turn.name %>'s<% end %></td>
+  <% if game.status == "in_progress" %>
+    <td><%= link_to 'Continue', game %></td>
+  <% else %>
+    <td><%= link_to 'Review', game %></td>
+  <% end %>
+</tr>

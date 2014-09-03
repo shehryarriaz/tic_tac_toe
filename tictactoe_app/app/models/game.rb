@@ -50,9 +50,12 @@ class Game < ActiveRecord::Base
     end
   end
 
-  # def update_winner
-  #   if game_won
-  # end
+  def update_winner
+    if game_won? && !game_drawn?
+      self.winner = self.moves.last.user
+      self.save!
+    end
+  end
 
   def whose_turn
     moves.count.even? ? player_1 : player_2

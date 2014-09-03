@@ -2,4 +2,15 @@
 
 <%= link_to 'Play new game', new_game_path %>
 
-<%= render @games %>
+<table>
+  <caption><h3>Your games</h3></caption>
+  <tr>
+    <th>Game</th>
+    <th>Player O</th>
+    <th>Player X</th>
+    <th>Status</th>
+    <th>Turn</th>
+    <th>Link</th>
+  </tr>
+  <%= render @games %>
+</table>

@@ -10,8 +10,8 @@ class Move < ActiveRecord::Base
   validate :space_in_bounds?
 
   after_create :change_game_status
+  after_create :update_game_winner
 
-  # Checks if the current game is still in play via the Game status attribute. Game status should be changed in the Game model.
   private
   def game_is_active
     errors.add :game, "This game has ended." unless game.status == "in_progress"
@@ -30,6 +30,11 @@ class Move < ActiveRecord::Base
   private
   def change_game_status
     game.change_status
+  end
+
+  private
+  def update_game_winner
+    game.update_winner
   end
 
   private
