@@ -1,17 +1,17 @@
 <table class="game_board">
   <tr>
-    <td><%= button_to "#{@markers[0]}", make_move_path(space: 0) %></td>
-    <td><%= button_to "#{@markers[1]}", make_move_path(space: 1) %></td>
-    <td><%= button_to "#{@markers[2]}", make_move_path(space: 2) %></td>
+    <td><%= button_to "#{@markers[0]}", make_move_path(space: 0), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[1]}", make_move_path(space: 1), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[2]}", make_move_path(space: 2), :class => "game_space" %></td>
   </tr>
   <tr>
-    <td><%= button_to "#{@markers[3]}", make_move_path(space: 3) %></td>
-    <td><%= button_to "#{@markers[4]}", make_move_path(space: 4) %></td>
-    <td><%= button_to "#{@markers[5]}", make_move_path(space: 5) %></td>
+    <td><%= button_to "#{@markers[3]}", make_move_path(space: 3), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[4]}", make_move_path(space: 4), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[5]}", make_move_path(space: 5), :class => "game_space" %></td>
   </tr>
   <tr>
-    <td><%= button_to "#{@markers[6]}", make_move_path(space: 6) %></td>
-    <td><%= button_to "#{@markers[7]}", make_move_path(space: 7) %></td>
-    <td><%= button_to "#{@markers[8]}", make_move_path(space: 8) %></td>
+    <td><%= button_to "#{@markers[6]}", make_move_path(space: 6), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[7]}", make_move_path(space: 7), :class => "game_space" %></td>
+    <td><%= button_to "#{@markers[8]}", make_move_path(space: 8), :class => "game_space" %></td>
   </tr>
 </table>

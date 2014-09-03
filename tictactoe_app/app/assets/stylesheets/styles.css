@@ -1,13 +1,21 @@
 .game_board {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
+  border: 0;
 }
 
 .game_board tr:nth-of-type(even) {
-    background-color: transparent !important;
+  background-color: transparent !important;
+}
+
+.game_space {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  font-size: 8em;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  background: #D3D8E0;
 }
