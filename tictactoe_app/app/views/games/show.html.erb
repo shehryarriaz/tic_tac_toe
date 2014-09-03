@@ -1,0 +1,6 @@
+<h4>Game: <%= @game.id %></h4>
+<h4>Player 1: <%= @game.player_1.name %></h4>
+<h4>Player 2: <%= @game.player_2.name %></h4>
+<h4>Status: <%= @game.status %></h4>
+<p><%= @game.board %></p>
+<%= link_to 'Back', games_path %>

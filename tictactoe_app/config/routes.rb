@@ -9,5 +9,6 @@ TictactoeApp::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :games
   get 'logout', to: 'sessions#destroy', as: 'logout'
 end

@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
 
+  def games
+    Game.where("games.player_1_id = :id or games.player_2_id = :id", id: id )
+  end
+
 end
