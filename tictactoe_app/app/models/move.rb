@@ -7,7 +7,7 @@ class Move < ActiveRecord::Base
   validate :game_is_active
   validate :is_player_turn
   validate :space_is_empty
-  # validate :space_in_bounds
+  validate :space_in_bounds?
 
   after_create :change_game_status
 
@@ -30,6 +30,11 @@ class Move < ActiveRecord::Base
   private
   def change_game_status
     game.change_status
+  end
+
+  private
+  def space_in_bounds?
+    errors.add :space, "That space is not in bounds." unless space >= 0 && space <= 8
   end
 
 end

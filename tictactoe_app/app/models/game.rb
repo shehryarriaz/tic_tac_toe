@@ -50,6 +50,10 @@ class Game < ActiveRecord::Base
     end
   end
 
+  # def update_winner
+  #   if game_won
+  # end
+
   def whose_turn
     moves.count.even? ? player_1 : player_2
   end

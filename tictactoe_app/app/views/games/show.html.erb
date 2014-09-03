@@ -3,9 +3,13 @@
 <h4>Player 2: <%= @game.player_2.name %></h4>
 <h4>Status: <%= @game.status %></h4>
 
+<% if @game.active? %>
+  <h4>It's <%= @game.whose_turn.name %>'s turn.</h4>
+<% end %>
 
-<h4>It's <%= @game.whose_turn.name %>'s turn.</h4>
+<% if @game.game_drawn? %>
+  <h4>It's a draw!</h4>
+<% end %>
 
 <%= render 'board' %>
-<p><%= @game.board %></p>
 <%= link_to 'Back', games_path %>

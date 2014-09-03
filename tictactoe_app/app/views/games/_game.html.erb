@@ -1,1 +1,1 @@
-<p><%= game.id %> | <%= game.player_1.name %> vs <%= game.player_2.name %> | <%= game.status %> <%= link_to 'Show', game %></p>
+<p><%= game.id %> | <%= game.player_1.name %> vs <%= game.player_2.name %> | <%= game.status %> | <% if game.active? %><%= game.whose_turn.name %>'s turn'<% end %> <%= link_to 'Show', game %></p>
