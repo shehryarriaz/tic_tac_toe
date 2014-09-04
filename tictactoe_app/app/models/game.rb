@@ -53,7 +53,7 @@ class Game < ActiveRecord::Base
   def change_status
     reload
     if game_won? || game_drawn?
-      self.status = "finished"
+      self.status = "Finished"
       self.save!
     end
   end
@@ -77,7 +77,7 @@ class Game < ActiveRecord::Base
 
   private
   def set_in_progress
-    self.status ||= "in_progress"
+    self.status ||= "In progress"
   end
   
 end

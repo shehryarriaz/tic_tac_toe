@@ -4,7 +4,7 @@
   <td><%= game.player_2.name %></td>
   <td><%= game.status %></td>
   <td><% if game.active? %><%= game.whose_turn.name %>'s<% end %></td>
-  <% if game.status == "in_progress" %>
+  <% if game.status == "In progress" %>
     <td><%= link_to 'Continue', game %></td>
   <% else %>
     <td><%= link_to 'Review', game %></td>

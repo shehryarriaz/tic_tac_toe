@@ -14,7 +14,7 @@ class Move < ActiveRecord::Base
 
   private
   def game_is_active
-    errors.add :base, "This game has ended." unless game.status == "in_progress"
+    errors.add :base, "This game has ended." unless game.status == "In progress"
   end
 
   private
