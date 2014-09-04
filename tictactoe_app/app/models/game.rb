@@ -23,7 +23,7 @@ class Game < ActiveRecord::Base
   end
 
   def next_marker
-    moves.last.try(:marker) == 'o' ? 'x' : 'o'
+    moves.last.try(:marker) == 'O' ? 'X' : 'O'
   end
 
   def game_won?

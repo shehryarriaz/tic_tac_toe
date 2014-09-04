@@ -14,17 +14,17 @@ class Move < ActiveRecord::Base
 
   private
   def game_is_active
-    errors.add :game, "This game has ended." unless game.status == "in_progress"
+    errors.add :base, "This game has ended." unless game.status == "in_progress"
   end
 
   private
   def is_player_turn
-    errors.add :user, "It is not your turn." unless game.whose_turn == user
+    errors.add :base, "It's not your turn." unless game.whose_turn == user
   end
 
   private
   def space_is_empty
-    errors.add :space, "That space has been taken." unless game.taken_spaces.all? { |taken_space| taken_space != space }
+    errors.add :base, "That space has been taken." unless game.taken_spaces.all? { |taken_space| taken_space != space }
   end
 
   private
@@ -39,7 +39,7 @@ class Move < ActiveRecord::Base
 
   private
   def space_in_bounds?
-    errors.add :space, "That space is not in bounds." unless space >= 0 && space <= 8
+    errors.add :base, "That space is not in bounds." unless space >= 0 && space <= 8
   end
 
 end
