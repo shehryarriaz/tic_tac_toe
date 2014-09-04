@@ -22,7 +22,7 @@
 <% end %>
 
 <% if @game.game_won? %>
-  <p class="alert-box success radius"><%= @game.winner.name %> wins!</p>
+  <p class="alert-box success radius"><%= @game.winner.try(:name) %> wins!</p>
 <% end %>
 
 <%= render 'board' %>
