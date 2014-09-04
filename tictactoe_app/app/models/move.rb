@@ -30,7 +30,7 @@ class Move < ActiveRecord::Base
 
   private
   def computer_player_turn
-    if game.whose_turn.id == 3
+    if game.whose_turn.id == 1
       game.computer_turn
     end
   end

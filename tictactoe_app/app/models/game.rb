@@ -77,11 +77,11 @@ class Game < ActiveRecord::Base
 
   def computer_turn
     reload
-    if player_2_id == 3 && self.active?
+    if player_2_id == 1 && self.active?
       board_spaces = [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
       free_spaces = board_spaces - self.taken_spaces
       move_space = free_spaces.sample
-      move = self.moves.new(user_id: 3, space: move_space, marker: self.next_marker)
+      move = self.moves.new(user_id: 1, space: move_space, marker: self.next_marker)
       move.save!
     end
   end
