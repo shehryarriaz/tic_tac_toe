@@ -60,7 +60,7 @@ class Game < ActiveRecord::Base
 
   def update_winner
     if game_won? && !game_drawn?
-      self.winner = self.moves.last.user
+      self.winner = self.moves.sort.last.user
       self.save!
     end
   end
@@ -73,6 +73,17 @@ class Game < ActiveRecord::Base
     taken_spaces = []
     self.moves.each { |move| taken_spaces << move.space }
     return taken_spaces
+  end
+
+  def computer_turn
+    reload
+    if player_2_id == 3 && self.active?
+      board_spaces = [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+      free_spaces = board_spaces - self.taken_spaces
+      move_space = free_spaces.sample
+      move = self.moves.new(user_id: 3, space: move_space, marker: self.next_marker)
+      move.save!
+    end
   end
 
   private

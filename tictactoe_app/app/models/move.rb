@@ -11,6 +11,7 @@ class Move < ActiveRecord::Base
 
   after_create :change_game_status
   after_create :update_game_winner
+  after_create :computer_player_turn
 
   private
   def game_is_active
@@ -25,6 +26,13 @@ class Move < ActiveRecord::Base
   private
   def space_is_empty
     errors.add :base, "That space has been taken." unless game.taken_spaces.all? { |taken_space| taken_space != space }
+  end
+
+  private
+  def computer_player_turn
+    if game.whose_turn.id == 3
+      game.computer_turn
+    end
   end
 
   private
