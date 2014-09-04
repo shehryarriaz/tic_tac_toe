@@ -1,3 +1,8 @@
+#logo {
+  font-family: 'Shadows Into Light';
+  font-size: 1.7em;
+}
+
 #game_board {
   margin: 0;
   padding: 0;
@@ -19,8 +24,41 @@
   outline: 0;
   border: 0;
   font-size: 9em;
-  line-height: 1em;
+  line-height: 1.1em;
   width: 100%;
   cursor: pointer;
   background: #D3D8E0;
+}
+
+.panel {
+  padding: 2px;
+}
+
+.alert-box.info {
+  background-color: #e55300;
+  border: 0;
+  color: #ffffff;
+}
+
+.alert-box.success {
+  background-color: #308832;
+  border: 0;
+  border-radius: 0;
+  color: #ffffff;
+}
+
+.button {
+  background-color: #b4b4b4;
+}
+
+.button:hover {
+  background-color: #333333;
+}
+
+a {
+  color: #b4b4b4;
+}
+
+a:hover {
+  color: #333333;
 }

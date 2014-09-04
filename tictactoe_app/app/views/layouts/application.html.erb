@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tic Tac Toe</title>
+  <title>ticky-tacky</title>
   <meta name="viewport" content="width=device">
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -14,7 +15,7 @@
       <nav class="top-bar">
         <ul class="title-area">
           <li class="name">
-            <h1><%= link_to "Tic Tac Toe", root_path %></a></h1>
+            <h1><%= link_to "ticky-tacky", root_path, :id => "logo" %></a></h1>
           </li>
         </ul>
         <section class="top-bar-section">
