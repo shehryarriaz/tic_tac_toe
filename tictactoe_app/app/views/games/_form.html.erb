@@ -1,6 +1,6 @@
 <%= form_for @game do |f| %>
   <%= f.hidden_field :player_1_id, :value => current_user.id %>
   <%= f.label :player_2_id, "Select your opponent" %>
-  <%= f.collection_select :player_2_id, User.all, :id, :name %>
+  <%= f.collection_select :player_2_id, @opponents, :id, :name %>
   <%= f.submit 'Create game', :class => "button expand" %>
 <% end %>

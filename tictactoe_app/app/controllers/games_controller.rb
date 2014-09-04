@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @opponents = (User.all - [current_user])
   end
 
   def create

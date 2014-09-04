@@ -32,7 +32,11 @@ class User < ActiveRecord::Base
   end
 
   def win_loss
-    (self.wins.to_f / self.losses.to_f).round(2)
+    if self.wins == 0 && self.losses
+      "N/A"
+    else
+    (self.wins.to_f / (self.wins.to_f + self.losses.to_f)).round(2)
+    end
   end
 
 end
