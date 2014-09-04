@@ -1,3 +1,7 @@
+body {
+  background-image: url(escheresque_@2X.png);
+}
+
 #logo {
   font-family: 'Shadows Into Light';
   font-size: 1.7em;
@@ -27,7 +31,12 @@
   line-height: 1.1em;
   width: 100%;
   cursor: pointer;
-  background: #D3D8E0;
+  background-color: #f2f2f2;
+}
+
+.game_space:hover {
+  color: #f2f2f2;
+  background-color: #333333;
 }
 
 .panel {
@@ -37,7 +46,7 @@
 .alert-box.info {
   background-color: #e55300;
   border: 0;
-  color: #ffffff;
+  color: #f2f2f2;
 }
 
 .alert-box.success {
