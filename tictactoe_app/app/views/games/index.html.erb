@@ -31,5 +31,5 @@
     <th>Winner</th>
     <th>Link</th>
   </tr>
-  <%= render @games %>
+  <%= render @games if @games.present? %>
 </table>

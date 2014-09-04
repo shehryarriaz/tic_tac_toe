@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   end
 
   def new
+    redirect_to new_session_path if !current_user
     @game = Game.new
     @opponents = (User.all - [current_user])
   end
@@ -39,7 +40,7 @@ class GamesController < ApplicationController
     else
       flash[:error] = "Invalid move. #{@move.errors.full_messages.to_sentence}"
     end
-    redirect_to @game
+    redirect_to game_path(@game, anchor: "game_board")
   end
 
 end

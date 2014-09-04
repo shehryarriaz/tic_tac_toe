@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   
   validates :password, presence: true, on: :create
   validates :email, presence: true
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i, on: :create
   validates :email, uniqueness: { case_sensitive: false }
 
   def games

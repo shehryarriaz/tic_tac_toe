@@ -1,8 +1,8 @@
-.game_board {
+#game_board {
   border: 0;
 }
 
-.game_board tr:nth-of-type(even) {
+#game_board tr:nth-of-type(even) {
   background-color: transparent !important;
 }
 
@@ -14,8 +14,8 @@
   outline: 0;
   border: 0;
   font-size: 9em;
-  height: 150px;
-  width: 150px;
+  line-height: 1em;
+  width: 100%;
   cursor: pointer;
   background: #D3D8E0;
 }

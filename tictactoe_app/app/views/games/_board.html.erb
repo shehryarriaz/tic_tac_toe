@@ -1,4 +1,4 @@
-<table class="game_board">
+<table id="game_board">
   <tr>
     <td><%= button_to "#{@markers[0]}", make_move_path(space: 0), :class => "game_space" %></td>
     <td><%= button_to "#{@markers[1]}", make_move_path(space: 1), :class => "game_space" %></td>
