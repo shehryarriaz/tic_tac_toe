@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  load_and_authorize_resource :move
 
   def index
     @name = current_user.try(:name)

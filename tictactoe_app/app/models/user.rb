@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i, on: :create
   validates :email, uniqueness: { case_sensitive: false }
 
+  before_create :default_role
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end
+
   def games
     Game.where("games.player_1_id = :id or games.player_2_id = :id", id: id )
   end
@@ -38,6 +44,11 @@ class User < ActiveRecord::Base
     else
     (self.wins.to_f / (self.wins.to_f + self.losses.to_f)).round(2)
     end
+  end
+
+  private
+  def default_role
+    self.role ||= :basic_user
   end
 
 end
