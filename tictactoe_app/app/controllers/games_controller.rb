@@ -15,8 +15,14 @@ class GamesController < ApplicationController
   end
 
   def create
-    Game.create(params[:game])
-    redirect_to games_path
+    @new_game = Game.new(params[:game])
+    if @new_game.save
+      flash[:notice] = "Game created."
+      redirect_to @new_game
+    else
+      flash[:error] = "Invalid game. #{@new_game.errors.full_messages.to_sentence}"
+      redirect_to new_game_path
+    end
   end
 
   def show

@@ -6,7 +6,15 @@ class Game < ActiveRecord::Base
 
   attr_accessible :status, :player_1_id, :player_2_id
 
+  validates :player_1, presence: true
+  validates :player_2, presence: true
+  validate :different_players
+
   before_create :set_in_progress
+
+  def different_players
+    errors.add :base, "You can't play against yourself." unless player_2 != player_1
+  end
 
   def player_1_moves
     self.player_1.moves.where(game_id: id)
